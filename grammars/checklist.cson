@@ -1,0 +1,64 @@
+name: "Checklist"
+scopeName: "source.checklist"
+fileTypes: [
+  "checklist"
+  "check"
+]
+patterns: [
+  { include: "#checklist" }
+]
+repository:
+  "checklist":
+    patterns: [
+      { include: "#checklist-tag" }
+      { include: "#checklist-header" }
+      { include: "#checklist-info" }
+      { include: "#checklist-pending" }
+      { include: "#checklist-completed" }
+      { include: "#checklist-question" }
+    ]
+  "checklist-tag":
+    comment: "checklist tag"
+    name: "checklist.tag"
+    begin: "\\["
+    end: "\\]"
+  "checklist-header":
+    comment: "checklist header line"
+    name: "checklist.header"
+    begin: "^ *[^ *\\-+?\\[]"
+    end: "$"
+    patterns: [
+      { include: "#checklist-tag" }
+    ]
+  "checklist-info":
+    comment: "checklist informational line item"
+    name: "checklist.item.info"
+    begin: "^ *\\* "
+    end: "$"
+    patterns: [
+      { include: "#checklist-tag" }
+    ]
+  "checklist-pending":
+    comment: "checklist pending line item"
+    name: "checklist.item.pending"
+    begin: "^ *- "
+    end: "$"
+    patterns: [
+      { include: "#checklist-tag" }
+    ]
+  "checklist-completed":
+    comment: "checklist completed line item"
+    name: "checklist.item.completed"
+    begin: "^ *\\+ "
+    end: "$"
+    patterns: [
+      { include: "#checklist-tag" }
+    ]
+  "checklist-question":
+    comment: "checklist question line item"
+    name: "checklist.item.question"
+    begin: "^ *\\? "
+    end: "$"
+    patterns: [
+      { include: "#checklist-tag" }
+    ]

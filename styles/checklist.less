@@ -1,0 +1,34 @@
+@import "syntax-variables";
+@import "ui-variables";
+
+atom-text-editor.editor {
+  .syntax--source {
+    &.syntax--checklist {
+      color: @syntax-text-color;
+    }
+  }
+  .syntax--checklist {
+    &.syntax--tag {
+      color: mix(@syntax-color-keyword, @syntax-text-color, 80);
+    }
+    &.syntax--header {
+      color: mix(@syntax-color-removed, @syntax-text-color, 80);
+      font-weight: bold;
+    }
+    &.syntax--item {
+      &.syntax--info {
+        color: @syntax-text-color;
+      }
+      &.syntax--pending {
+        color: mix(@syntax-color-modified, @syntax-text-color, 80);
+      }
+      &.syntax--completed {
+        color: mix(@syntax-text-color, @syntax-indent-guide-color, 33);
+        font-style: italic;
+      }
+      &.syntax--question {
+        color: mix(@syntax-color-added, @syntax-text-color, 80);
+      }
+    }
+  }
+}
