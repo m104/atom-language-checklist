@@ -14,7 +14,7 @@
   "bugs": {
     "url": "https://github.com/m104/atom-language-checklist/issues"
   },
-  "version": "0.0.0",
+  "version": "0.1.0",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
   }
